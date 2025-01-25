@@ -3374,13 +3374,7 @@ function Test-Port445Connectivity {
 
         if ($result.TcpTestSucceeded -eq $False)
         {
-            $message = "Unable to reach the storage account file endpoint." `
-                + "`n`tTo debug connectivity problems, please refer to the troubleshooting tool for Azure" `
-                + " Files mounting errors on Windows, " `
-                + " `n`t'AzFileDiagnostics.ps1'($($PSStyle.Foreground.BrightCyan)https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5$($PSStyle.Reset))." `
-                + " `n`tFor possible solutions please refer to" `
-                + " '$($PSStyle.Foreground.BrightCyan)https://aka.ms/azfiles/entra-port445$($PSStyle.Reset)'"
-            Write-Error -Message $message -ErrorAction Stop
+            Write-TestingFailed "Unable to reach the storage account file endpoint.`n`tTo debug connectivity problems, please refer to the following,`n`t'AzFileDiagnostics.ps1'($($PSStyle.Foreground.BrightCyan)https://github.com/Azure-Samples/azure-files-samples/tree/master/AzFileDiagnostics/Windows$($PSStyle.Reset))'.`n`tFor possible solutions please refer to '$($PSStyle.Foreground.BrightCyan)https://aka.ms/azfiles/entra-port445$($PSStyle.Reset)'" -ErrorAction Stop
         }
     }
 }
